@@ -15,7 +15,7 @@ vector<string> removeFruit(string fruit);
 int main()
 {
   char input = 'n';
-  while (input == 'n')
+  while (input != 'y')
     {
       cout << "--- 20 Questions ---" << endl;
       cout << "Think of a fruit..." << endl;
@@ -121,13 +121,41 @@ void Questions()
                 }
                 else
                 {
-                    possibleAnswers.push_back ("blueberry");
-                    possibleAnswers.push_back ("grape");
-                    possibleAnswers.push_back ("fig");
-                    possibleAnswers.push_back ("plum");
-                    possibleAnswers.push_back ("blackberry");
-                    possibleAnswers.push_back ("eggplant");
-                    state = "blue"; //color not green, yellow, orange, or red
+                    cout << "Q" << qNum << ": Is your fruit the color blue?" << endl;
+                    cin >> input;
+                    qNum++;
+                    
+                    if(input == 'y')
+                    {
+                        possibleAnswers.push_back ("blueberry");
+                        possibleAnswers.push_back ("grape");
+                        possibleAnswers.push_back ("fig");
+                        possibleAnswers.push_back ("plum");
+                        possibleAnswers.push_back ("blackberry");
+                        possibleAnswers.push_back ("eggplant");
+                        state = "blue"; //color not green, yellow, orange, or red
+                    }
+                    else
+                    {
+                        cout << "Q" << qNum << ": Is your fruit the color brown?" << endl;
+                        cin >> input;
+                        qNum++;
+                        
+                        if(input == 'y')
+                        {
+                            cout << "Q" << qNum << ": Is your fruit a kiwi?" << endl;
+                            cin >> input;
+                            qNum++;
+                            if(input == 'y')
+                            {
+                                state = "correct";
+                            }
+                            else
+                            {
+                                state = "incorrect";
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -190,7 +218,21 @@ void Questions()
         if(input == 'y')
         {
             possibleAnswers.push_back ("banana");
-            state = "banana";
+            //state = "banana";
+            
+            cout << "Q" << qNum << ": Is your fruit a banana?" << endl;
+            cin >> input;
+            qNum++;
+            
+            if(input == 'y')
+            {
+                state = "correct";
+            }
+            else
+            {
+                state = "incorrect";
+            }
+            
         }
         else
         {
@@ -517,6 +559,399 @@ void Questions()
                 }
             }
         }
+    }
+    if(state == "notBanana")
+    {
+        /*
+        possibleAnswers.push_back ("lemon"); -
+        possibleAnswers.push_back ("squash");-
+        possibleAnswers.push_back ("mango"); -
+        possibleAnswers.push_back ("pineapple");
+        possibleAnswers.push_back ("durian"); -
+        */
+        cout << "Q" << qNum << ": Does your fruit have an 'o' in the name?" << endl;
+        qNum++;
+        cin >> input;
+        
+        if(input == 'y')
+        {
+            cout << "Q" << qNum << ": Is your fruit sour?" << endl;
+            qNum++;
+            cin >> input;
+            if(input == 'y')
+            {
+                cout << "Q" << qNum << ": Is your fruit a lemon?" << endl;
+                qNum++;
+                cin >> input;
+                
+                if(input == 'y')
+                {
+                    state = "correct";
+                }
+                else
+                {
+                    state = "incorrect";
+                }
+            }
+            else
+            {
+                cout << "Q" << qNum << ": Is your fruit a mango?" << endl;
+                qNum++;
+                cin >> input;
+                
+                if(input == 'y')
+                {
+                    state = "correct";
+                }
+                else
+                {
+                    state = "incorrect";
+                }
+            }
+        }
+        else
+        {
+            cout << "Q" << qNum << ": Is your fruit known for smelling bad?" << endl;
+            qNum++;
+            cin >> input;
+            
+            if(input == 'y')
+            {
+                cout << "Q" << qNum << ": Is your fruit a durian?" << endl;
+                qNum++;
+                cin >> input;
+                
+                if(input == 'y')
+                {
+                    state = "correct";
+                }
+                else
+                {
+                    state = "incorrect";
+                }
+            }
+            else
+            {
+                cout << "Q" << qNum << ": Does Spongebob live in your fruit?" << endl;
+                qNum++;
+                cin >> input;
+                
+                if(input == 'y')
+                {
+                    cout << "Q" << qNum << ": Is your fruit a pineapple?" << endl;
+                    qNum++;
+                    cin >> input;
+                    
+                    if(input == 'y')
+                    {
+                        state = "correct";
+                    }
+                    else
+                    {
+                        state = "incorrect";
+                    }
+                }
+                else
+                {
+                    cout << "Q" << qNum << ": Is your fruit a squash?" << endl;
+                    qNum++;
+                    cin >> input;
+                    
+                    if(input == 'y')
+                    {
+                        state = "correct";
+                    }
+                    else
+                    {
+                        state = "incorrect";
+                    }
+                }
+            }
+        }
+        
+    }
+    if(state == "greenBig")
+    {
+        /*
+        possibleAnswers.push_back ("apple");
+        possibleAnswers.push_back ("watermelon");
+        possibleAnswers.push_back ("pear");
+        possibleAnswers.push_back ("avocado");
+        */
+        
+        cout << "Q" << qNum << ": Is there a major tech company named after your fruit?" << endl;
+        qNum++;
+        cin >> input;
+        
+        if(input == 'y')
+        {
+            cout << "Q" << qNum << ": Is your fruit an apple?" << endl;
+            qNum++;
+            cin >> input;
+                    
+            if(input == 'y')
+            {
+                state = "correct";
+            }
+            else
+            {
+                state = "incorrect";
+            }
+        }
+        else
+        {
+            cout << "Q" << qNum << ": Is your fruit red on the inside?" << endl;
+            qNum++;
+            cin >> input;
+            
+            if(input == 'y')
+            {
+                cout << "Q" << qNum << ": Is your fruit a watermelon?" << endl;
+                qNum++;
+                cin >> input;
+                        
+                if(input == 'y')
+                {
+                    state = "correct";
+                }
+                else
+                {
+                    state = "incorrect";
+                }
+            }
+            else
+            {
+                cout << "Q" << qNum << ": Does your fruit have a big seed?" << endl;
+                qNum++;
+                cin >> input;
+                
+                if(input == 'y')
+                {
+                    cout << "Q" << qNum << ": Is your fruit an avacado?" << endl;
+                    qNum++;
+                    cin >> input;
+                            
+                    if(input == 'y')
+                    {
+                        state = "correct";
+                    }
+                    else
+                    {
+                        state = "incorrect";
+                    }
+                }
+                else
+                {
+                    cout << "Q" << qNum << ": Is your fruit a pear?" << endl;
+                    qNum++;
+                    cin >> input;
+                            
+                    if(input == 'y')
+                    {
+                        state = "correct";
+                    }
+                    else
+                    {
+                        state = "incorrect";
+                    }
+                }
+            }
+        }
+        
+    }
+    if(state == "greenSmall")
+    {
+        /*
+        possibleAnswers.push_back ("grape");
+        possibleAnswers.push_back ("lime");
+        possibleAnswers.push_back ("kiwi");
+        */
+        cout << "Q" << qNum << ": Is your fruit bitesize?" << endl;
+        qNum++;
+        cin >> input;
+        
+        if(input == 'y')
+        {
+            cout << "Q" << qNum << ": Is your fruit a grape?" << endl;
+            qNum++;
+            cin >> input;
+                            
+            if(input == 'y')
+            {
+                state = "correct";
+            }
+            else
+            {
+                state = "incorrect";
+            }
+        }
+        else
+        {
+            cout << "Q" << qNum << ": Is your fruit brown on the outside?" << endl;
+            qNum++;
+            cin >> input;
+            
+            if(input == 'y')
+            {
+                cout << "Q" << qNum << ": Is your fruit a kiwi?" << endl;
+                qNum++;
+                cin >> input;
+                                
+                if(input == 'y')
+                {
+                    state = "correct";
+                }
+                else
+                {
+                    state = "incorrect";
+                }
+            }
+            else
+            {
+                cout << "Q" << qNum << ": Is your fruit a lime?" << endl;
+                qNum++;
+                cin >> input;
+                                
+                if(input == 'y')
+                {
+                    state = "correct";
+                }
+                else
+                {
+                    state = "incorrect";
+                }
+            }
+        }
+    }
+    if(state == "oneBite")
+    {
+        /*
+        possibleAnswers.push_back ("blueberry");
+        possibleAnswers.push_back ("grape");
+        possibleAnswers.push_back ("blackberry");
+        */
+        
+        cout << "Q" << qNum << ": Is your fruit a berry?" << endl;
+        qNum++;
+        cin >> input;
+        
+        if(input == 'y')
+        {
+            cout << "Q" << qNum << ": Is your fruit a blueberry" << endl;
+            qNum++;
+            cin >> input;
+            
+            if(input == 'y')
+            {
+                state = "correct";
+            }
+            else
+            {
+                cout << "Q" << qNum << ": Is your fruit a blackberry?" << endl;
+                qNum++;
+                cin >> input;
+                
+                if(input == 'y')
+                {
+                    state = "correct";
+                }
+                else
+                {
+                    state = "incorrect";
+                }
+            }
+        }
+        else
+        {
+            cout << "Q" << qNum << ": Is your fruit a grape?" << endl;
+            qNum++;
+            cin >> input;
+            
+            if(input == 'y')
+            {
+                state = "correct";
+            }
+            else
+            {
+                state = "incorrect";
+            }
+        }
+    }
+    if(state == "notOneBite")
+    {
+        /*
+        possibleAnswers.push_back ("fig");
+        possibleAnswers.push_back ("plum");
+        possibleAnswers.push_back ("eggplant");
+        */
+        
+        cout << "Q" << qNum << ": Is your fruit larger than a softball?" << endl;
+        qNum++;
+        cin >> input;
+            
+        if(input == 'y')
+        {
+            cout << "Q" << qNum << ": Is your fruit an eggplant?" << endl;
+            qNum++;
+            cin >> input;
+            
+            if(input == 'y')
+            {
+                state = "correct";
+            }
+            else
+            {
+                state = "incorrect";
+            }
+        }
+        else
+        {
+            cout << "Q" << qNum << ": Does your fruit have a large seed?" << endl;
+            qNum++;
+            cin >> input;
+            
+            if(input == 'y')
+            {
+                cout << "Q" << qNum << ": Is your fruit a plum?" << endl;
+                qNum++;
+                cin >> input;
+                
+                if(input == 'y')
+                {
+                    state = "correct";
+                }
+                else
+                {
+                    state = "incorrect";
+                }
+            }
+            else
+            {
+                cout << "Q" << qNum << ": Is your fruit a fig?" << endl;
+                qNum++;
+                cin >> input;
+                
+                if(input == 'y')
+                {
+                    state = "correct";
+                }
+                else
+                {
+                    state = "incorrect";
+                }
+            }
+        }
+    }
+    if(state == "correct")
+    {
+        cout << "YES! I guessed your fruit in " << qNum - 1 << " guesses!" << endl;
+    }
+    if(state == "incorrect")
+    {
+        cout << "You win. I could not guess your fruit..." << endl;
+        cout << "What was your fruit?: " << endl;
+        cin >> input;
+        cout << "Got it, I am adding " << input << " to my catalog." << endl;
     }
 }
 
