@@ -966,7 +966,7 @@ void Questions()
     if(state == "incorrect")
     {
         cout << "I could not guess your fruit..." << endl;
-        cout << "What was your fruit?: " << endl;
+        cout << "What was your fruit?: ";
         cin >> finalFruit;
         
         if(finalFruit[0] <= 90)
