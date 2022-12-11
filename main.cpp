@@ -14,6 +14,13 @@ vector<string> removeFruit(string fruit);
 
 int main()
 {
+  /*
+  for(int i = 0; i < fruitList.size(); i++)
+  {
+      cout << fruitList[i] << endl;
+  }
+  */
+
   char input = 'n';
   while (input != 'y')
     {
@@ -47,6 +54,7 @@ vector<string> initializeFruits()
 
 void Questions()
 {
+    string finalFruit;
     char input;
     vector<string> possibleAnswers;
     vector<string>fruitList = initializeFruits();
@@ -294,14 +302,19 @@ void Questions()
         erryFruits.push_back ("strawberry");
         erryFruits.push_back ("raspberry");
         erryFruits.push_back ("cranberry");
-        while(input == 'n')
+        while(input != 'y')
         {
+            state = "correct";
             cout << "Q" << qNum << ": Is your fruit a " << erryFruits.back() << "?" << endl;
             qNum++;
             cin >> input;
             erryFruits.pop_back();
+            if(erryFruits.size() == 0)
+            {
+                state = "incorrect";
+                break;
+            }
         }
-        state = "correct";
     }
     if(state == "notErry")
     {
@@ -948,10 +961,36 @@ void Questions()
     }
     if(state == "incorrect")
     {
-        cout << "You win. I could not guess your fruit..." << endl;
+        cout << "I could not guess your fruit..." << endl;
         cout << "What was your fruit?: " << endl;
-        cin >> input;
-        cout << "Got it, I am adding " << input << " to my catalog." << endl;
+        cin >> finalFruit;
+        
+        if(finalFruit[0] <= 90)
+        {
+            finalFruit[0] = finalFruit[0] + 32; //lowercase the fruit for searching
+        }
+        
+        for(int i = 0; i < fruitList.size(); i++)
+        {
+            if(finalFruit == fruitList[i])
+            {
+                state = "fruitFound";
+            }
+        }
+        
+        if(finalFruit[0] >= 97)
+        {
+            finalFruit[0] = finalFruit[0] - 32; //capitalize the fruit for printing
+        }
+        
+        if(state == "fruitFound")
+        {
+            cout << finalFruit << " is a valid fruit, you win." << endl;
+        }
+        else
+        {
+            cout << finalFruit << " is NOT a valid fruit, I win." << endl;
+        }
     }
 }
 
