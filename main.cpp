@@ -26,7 +26,7 @@ int main()
     {
       cout << "--- 20 Questions ---" << endl;
       cout << "Think of a fruit..." << endl;
-      cout << "Type y for yes, n for no" << endl << endl;
+      cout << "Type 'y' for yes, 'n' for no" << endl << endl;
       cout << "Are you ready? " << endl;
       cin >> input;
       cout << endl;
@@ -162,6 +162,10 @@ void Questions()
                             {
                                 state = "incorrect";
                             }
+                        }
+                        else
+                        {
+                            state = "incorrect";
                         }
                     }
                 }
@@ -993,4 +997,3 @@ void Questions()
         }
     }
 }
-
